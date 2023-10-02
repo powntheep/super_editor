@@ -136,7 +136,7 @@ class _DocumentScaffoldState extends State<DocumentScaffold> {
 
   Widget _buildDocumentLayout() {
     return Align(
-      alignment: Alignment.topCenter,
+      alignment: Alignment.centerLeft,
       child: CompositedTransformTarget(
         link: widget.documentLayoutLink,
         child: ContentLayers(
