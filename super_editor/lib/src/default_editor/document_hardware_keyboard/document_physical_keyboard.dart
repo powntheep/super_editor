@@ -122,7 +122,12 @@ DocumentKeyboardAction ignoreKeyCombos(List<ShortcutActivator> keys) {
     required RawKeyEvent keyEvent,
   }) {
     for (final key in keys) {
-      if (key.accepts(keyEvent, RawKeyboard.instance)) {
+      if (key.accepts(
+          KeyUpEvent(
+              physicalKey: keyEvent.physicalKey,
+              logicalKey: keyEvent.logicalKey,
+              timeStamp: ServicesBinding.instance.currentSystemFrameTimeStamp),
+          HardwareKeyboard.instance)) {
         return ExecutionInstruction.blocked;
       }
     }
